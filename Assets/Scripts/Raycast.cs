@@ -31,11 +31,11 @@ public class Raycast : MonoBehaviour
             {
                 raycastedObj = hitInfo.collider.gameObject;
                 CrosshairEvidence();
-                //if (Input.GetKeyDown("e"))
-                //{
-                //    Debug.Log("I HAVE FOUND EVIDENCE");
-                //    //raycastedObj.SetActive(false);
-                //}
+                if (Input.GetKeyDown("e"))
+                {
+                    //    Debug.Log("I HAVE FOUND EVIDENCE");
+                    hitInfo.transform.gameObject.GetComponent<Evidence>().Collect();
+                }
             }
             else if (hitInfo.collider.CompareTag("NPC"))
             {
