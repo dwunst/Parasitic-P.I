@@ -33,7 +33,6 @@ public class Raycast : MonoBehaviour
                 CrosshairEvidence();
                 if (Input.GetKeyDown("e"))
                 {
-                    //    Debug.Log("I HAVE FOUND EVIDENCE");
                     hitInfo.transform.gameObject.GetComponent<Evidence>().Collect();
                 }
             }
