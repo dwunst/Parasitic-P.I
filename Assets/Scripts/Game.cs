@@ -7,6 +7,7 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject hud;
     [SerializeField] private GameObject evidenceBook;
     private bool evidenceOpen = false;
+    public float ScoreMultiplier = 1.0f;
 
     // Update is called once per frame
     void Update()
