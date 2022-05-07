@@ -5,13 +5,13 @@ using TMPro;
 
 public class Breakable : MonoBehaviour
 {
-    public GameObject Player;
-    public GameObject originalObject;
-    public GameObject fractureObject;
-    public float impactMinForce = 5;
-    public float impactMaxForce = 100;
-    public float impactForceRadius = 30;
-    public float fragScaleFactor = 1;
+    //public GameObject Player;
+    //public GameObject originalObject;
+    //public GameObject fractureObject;
+    //public float impactMinForce = 5;
+    //public float impactMaxForce = 100;
+    //public float impactForceRadius = 30;
+    //public float fragScaleFactor = 1;
 
     public TextMeshProUGUI score;
     public bool meantToBreak;
@@ -24,6 +24,10 @@ public class Breakable : MonoBehaviour
         {
             score.text = (int.Parse(score.text) - Price).ToString();
         }
+        this.gameObject.AddComponent<TriangleExplosion>();
+        StartCoroutine(this.gameObject.GetComponent<TriangleExplosion>().SplitMesh(true));
+
+        /*
         originalObject.SetActive(false);
         fractureObject.SetActive(true);
 
@@ -56,7 +60,7 @@ public class Breakable : MonoBehaviour
 
             t.localScale = newScale;
             yield return new WaitForSeconds(0.05f);
-        }
+        }*/
     }
 
 }

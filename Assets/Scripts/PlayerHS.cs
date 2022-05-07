@@ -13,7 +13,7 @@ public class PlayerHS : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        HS.Init(this, "Game Game");
+        HS.Init(this, "Parasitic P.I");
         StartCoroutine(Something());
     }
 

@@ -53,8 +53,7 @@ public class Raycast : MonoBehaviour
                 CrosshairBreak();
                 if (Input.GetKeyDown("e"))
                 {
-                    raycastedObj.AddComponent<TriangleExplosion>();
-                    StartCoroutine(raycastedObj.GetComponent<TriangleExplosion>().SplitMesh(true));
+                    hitInfo.transform.gameObject.GetComponent<Breakable>().Break();
                 }
             }
             else 
