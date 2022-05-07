@@ -73,7 +73,7 @@ public class Game : MonoBehaviour
         StopAllCoroutines();
         Secondsf = Seconds + (60 * Minutes);
         averageLevelTimef = averageLevelTime;
-        ScoreMultiplier = 1.0f-(Secondsf/averageLevelTimef);
+        ScoreMultiplier = 2.0f-(Secondsf/averageLevelTimef);
         Score = float.Parse(score.text) * ScoreMultiplier;
         finalScore.text = "Final Score: " + Score.ToString();
 

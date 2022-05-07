@@ -9,7 +9,7 @@ public class Breakable : MonoBehaviour
     public GameObject fractureObject;
     public float impactMinForce = 5;
     public float impactMaxForce = 100;
-    public float impactForceRadius = 10;
+    public float impactForceRadius = 30;
     public float fragScaleFactor = 1;
 
     // Start is called before the first frame update
