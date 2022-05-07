@@ -13,6 +13,7 @@ public class Raycast : MonoBehaviour
     [SerializeField] private GameObject NormalSprite;
     [SerializeField] private GameObject EvidenceSprite;
     [SerializeField] private GameObject NPCSprite;
+    [SerializeField] private GameObject BreakableSprite;
 
     // Update is called once per frame
     void Update()
@@ -45,6 +46,15 @@ public class Raycast : MonoBehaviour
                 //    Debug.Log("I HAVE INTERACTED WITH A NPC");
                 //}
             }
+            else if (hitInfo.collider.CompareTag("Breakable"))
+            {
+                raycastedObj = hitInfo.collider.gameObject;
+                CrosshairBreak();
+                if (Input.GetKeyDown("e"))
+                {
+                    hitInfo.transform.gameObject.GetComponent<Breakable>().Break();
+                }
+            }
             else 
             {
                 CrosshairNormal();
@@ -60,16 +70,27 @@ public class Raycast : MonoBehaviour
         EvidenceSprite.SetActive(true);
         NPCSprite.SetActive(false);
         NormalSprite.SetActive(false);
+        BreakableSprite.SetActive(false);
     }
     void CrosshairNPC()
     {
         NPCSprite.SetActive(true);
         NormalSprite.SetActive(false);
         EvidenceSprite.SetActive(false);
+        BreakableSprite.SetActive(false);
     }
     void CrosshairNormal()
     {
         NormalSprite.SetActive(true);
+        EvidenceSprite.SetActive(false);
+        NPCSprite.SetActive(false);
+        BreakableSprite.SetActive(false);
+    }
+
+    void CrosshairBreak()
+    {
+        BreakableSprite.SetActive(true);
+        NormalSprite.SetActive(false);
         EvidenceSprite.SetActive(false);
         NPCSprite.SetActive(false);
     }
