@@ -10,7 +10,14 @@ public class Evidence : MonoBehaviour
     [SerializeField] private TextMeshProUGUI score;
     public void Collect()
     {
-        score.text = (int.Parse(score.text) + Score).ToString();
+        if (Score != 0)
+        {
+            score.text = (int.Parse(score.text) + Score).ToString();
+        }
+        else
+        {
+            Debug.Log("This isn't evidence");
+        }
         this.gameObject.SetActive(false);
         bookEvidence.SetActive(true);
     }

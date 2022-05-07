@@ -14,6 +14,7 @@ public class Raycast : MonoBehaviour
     [SerializeField] private GameObject EvidenceSprite;
     [SerializeField] private GameObject NPCSprite;
     [SerializeField] private GameObject BreakableSprite;
+    [SerializeField] private GameObject Hammer;
 
     // Update is called once per frame
     void Update()
@@ -46,13 +47,14 @@ public class Raycast : MonoBehaviour
                 //    Debug.Log("I HAVE INTERACTED WITH A NPC");
                 //}
             }
-            else if (hitInfo.collider.CompareTag("Breakable"))
+            else if (hitInfo.collider.CompareTag("Breakable") && Hammer.activeInHierarchy)
             {
                 raycastedObj = hitInfo.collider.gameObject;
                 CrosshairBreak();
                 if (Input.GetKeyDown("e"))
                 {
-                    hitInfo.transform.gameObject.GetComponent<Breakable>().Break();
+                    raycastedObj.AddComponent<TriangleExplosion>();
+                    StartCoroutine(raycastedObj.GetComponent<TriangleExplosion>().SplitMesh(true));
                 }
             }
             else 
